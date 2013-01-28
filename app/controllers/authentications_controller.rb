@@ -23,17 +23,6 @@ class AuthenticationsController < ApplicationController
     sign_in_and_redirect current_user
   end
 
-  def create
-    omni = request.env["omniauth.auth"]
-
-    user = User.new
-    user.email = omni['extra']['raw_info'].email
-
-    user.apply_omniauth(omni)
-
-    return user
-  end
-
   def facebook
     omni = request.env["omniauth.auth"]
     authentication = Authentication.find_by_provider_and_uid(
@@ -47,7 +36,12 @@ class AuthenticationsController < ApplicationController
       token_secret = ""
       link(token, token_secret)
     else
-      user = create
+      user = User.new
+      user.email = omni['extra']['raw_info'].email
+      
+      user.apply_omniauth(omni)
+      user.save()
+     
       flash[:notice] = "Logged in."
       sign_in_and_redirect User.find(user.id)
     end
@@ -66,7 +60,6 @@ class AuthenticationsController < ApplicationController
       token_secret = omni["credentials"].secret
       link(token, token_secret)
     else 
-      create
       session[:omniauth] = omni.except('extra')
       redirect_to new_user_registration_path
     end
