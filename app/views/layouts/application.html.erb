@@ -1,29 +1,44 @@
 <!DOCTYPE html>
-<html>
+<!--[if lt IE 7 ]> <html class="no-js ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]>    <html class="no-js ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]>    <html class="no-js ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
 <head>
+  <meta charset="utf-8">
   <title>Epoch</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <meta http-equiv="cleartype" content="on">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+  <%= stylesheet_link_tag "application", :media => "all" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-  <div id="user-controls">
-    <% if user_signed_in? %>
-      Logged in as <strong><%= current_user.email %></strong>
-      <%= link_to "Edit profile", edit_user_registration_path %> |
-      <%= link_to "Logout", destroy_user_session_path, method: :delete %>
-    <% else %>
-      <%= link_to "Sign up", new_user_registration_path %> |
-      <%= link_to "Login", new_user_session_path %>
-      <%= link_to "With Facebook", user_omniauth_authorize_path(:facebook) %>
-    <% end %>
-  </div>
+  <div id="container" class="cf">
+    <div class="grid">
+      <div id="header" class="row">
+        <div class="slot-0-1">
+          <div id="logo"><%= link_to(content_tag(:span, 'Epoch'), root_path) %></div>
+        </div>
+        <div class="slot-2">&nbsp;</div>
+        <div class="slot-3-4-5">
+          <%= render "layouts/header_menu" %>
+        </div> <!-- .slot-2-3-4-5 -->
+      </div> <!-- .row -->
+      <div class="row">
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
+      </div>
+      <div id="content" class="row">
+        <%= yield %>
+      </div>
+    </div> <!-- .grid -->
+  </div> <!-- #container -->
 
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
-
-<%= yield %>
-
+  <%= javascript_include_tag "application" %>
 </body>
 </html>

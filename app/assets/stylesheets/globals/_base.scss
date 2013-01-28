@@ -1,0 +1,127 @@
+// Main document colors
+body {
+    background-color: $brown_2;
+    background-repeat: repeat-x;
+    @include background-image(linear-gradient($brown_1 0, $brown_2 100%));
+    font-family: "Open Sans";
+    font-size: 67.5%;
+}
+
+// Top header area
+#header {
+    height: 60px;
+
+    #logo {
+        background: url(image_path('logo.png')) no-repeat top left;
+        height: 40px;
+        line-height: 40px;
+        margin: 20px 0 0 20px;
+
+        span {
+            display: none;
+        }
+    }
+}
+
+#header-menu {
+    float: right;
+    font-size: 1.2em;
+    margin-top: 20px;
+
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        li {
+            display: block;
+            float: left;
+
+            a {
+                @include box-sizing(border-box);
+                display: block;
+                height: 40px;
+                padding: 10px 20px;
+                color: $brown_3;
+                line-height: 20px;
+                text-decoration: none;
+                text-shadow: 1px 1px 0px #fff;
+                border: 1px transparent solid;
+
+                &:hover {
+                    color: $red_2;
+                }
+            }
+
+            &.dropdown {
+                position: relative;
+
+                ul {
+                    display: none;
+                    position: absolute;
+                    top: 40px;
+                    padding-top: 1px;
+                    right: 0px;
+                    width: 200px;
+
+                    li {
+                        display: block;
+                        width: 100%;
+
+                        a {
+                            display: block;
+                            margin: 0;
+                            width: 100%;
+                        }
+                    }
+                }
+
+                &:hover {
+
+                    ul {
+                        display: block;
+                    }
+
+                    & > a {
+                        @include border-radius(5px 5px 0 0);
+                        background-color: $red_1;
+                        color: #fff;
+                        text-shadow: none;
+                        z-index: 10;
+                    }
+
+                    & > ul {
+                        @include border-radius(5px 0 5px 5px);
+                        background-color: $red_1;
+
+                        a {
+                            color: #fff;
+                            text-shadow: none;
+                        }
+
+                        li:first-child {
+                            @include border-radius(5px 0 0 0);
+                        }
+
+                        li:hover {
+                            a {
+                                color: $orange_1;
+                            }
+                            background-color: $red_2;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Main content area
+#content {
+    @include border-radius(5px);
+    @include box-shadow(0px 0px 8px rgba(#000, .25));
+    @include box-sizing(border-box);
+    background-color: #fff;
+    font-size: 1em;
+    padding: 20px;
+}

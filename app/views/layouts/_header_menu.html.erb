@@ -1,0 +1,15 @@
+<div id="header-menu">
+  <%# Show dropdown menu for user controls, if they are signed in %>
+  <ul class="cf">
+  <li class="about-us"><a href="#">About Us</a></li>
+  <li class="help-center"><a href="#">Help Center</a></li>
+  <% if user_signed_in? %>
+    <li class="dropdown"><a href="#">My Account</a>
+      <ul>
+        <li class="edit-profile"><%= link_to "Edit profile", edit_user_registration_path %></li>
+        <li class="sign-out"><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+      </ul>
+    </li>
+  <% end %>
+  </ul>
+</div> <!-- .user-controls -->
