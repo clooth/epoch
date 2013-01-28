@@ -1,0 +1,144 @@
+GIT
+  remote: git://github.com/rails/arel.git
+  revision: b45466757424b98e1fe9699042d23550fd5b8751
+  branch: 3-0-stable
+  specs:
+    arel (3.0.2.20120221150532)
+
+GIT
+  remote: git://github.com/rails/coffee-rails.git
+  revision: c8f3df3369f0d5b32dbc57cf3fd575b50d106563
+  branch: 3-2-stable
+  specs:
+    coffee-rails (3.2.2)
+      coffee-script (>= 2.2.0)
+      railties (~> 3.2.0)
+
+GIT
+  remote: git://github.com/rails/journey.git
+  revision: ebe574d11942083aa97dafcfd762359d030a6d31
+  branch: 1-0-stable
+  specs:
+    journey (1.0.4.20120614141756)
+
+GIT
+  remote: git://github.com/rails/rails.git
+  revision: c7d6cfb1f6ec84340d0446206ba3b46f2de2bcfc
+  branch: 3-2-stable
+  specs:
+    actionmailer (3.2.11)
+      actionpack (= 3.2.11)
+      mail (~> 2.5.3)
+    actionpack (3.2.11)
+      activemodel (= 3.2.11)
+      activesupport (= 3.2.11)
+      builder (~> 3.0.0)
+      erubis (~> 2.7.0)
+      journey (~> 1.0.4)
+      rack (~> 1.4.3)
+      rack-cache (~> 1.2)
+      rack-test (~> 0.6.1)
+      sprockets (~> 2.2.1)
+    activemodel (3.2.11)
+      activesupport (= 3.2.11)
+      builder (~> 3.0.0)
+    activerecord (3.2.11)
+      activemodel (= 3.2.11)
+      activesupport (= 3.2.11)
+      arel (~> 3.0.2)
+      tzinfo (~> 0.3.29)
+    activeresource (3.2.11)
+      activemodel (= 3.2.11)
+      activesupport (= 3.2.11)
+    activesupport (3.2.11)
+      i18n (~> 0.6)
+      multi_json (~> 1.0)
+    rails (3.2.11)
+      actionmailer (= 3.2.11)
+      actionpack (= 3.2.11)
+      activerecord (= 3.2.11)
+      activeresource (= 3.2.11)
+      activesupport (= 3.2.11)
+      bundler (~> 1.0)
+      railties (= 3.2.11)
+    railties (3.2.11)
+      actionpack (= 3.2.11)
+      activesupport (= 3.2.11)
+      rack-ssl (~> 1.3.2)
+      rake (>= 0.8.7)
+      rdoc (~> 3.4)
+      thor (>= 0.14.6, < 2.0)
+
+GIT
+  remote: git://github.com/rails/sass-rails.git
+  revision: 0e2c205ec8b131dff103c13de2f9cd7f4938b18f
+  branch: 3-2-stable
+  specs:
+    sass-rails (3.2.6)
+      railties (~> 3.2.0)
+      sass (>= 3.1.10)
+      tilt (~> 1.3)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    builder (3.0.4)
+    coffee-script (2.2.0)
+      coffee-script-source
+      execjs
+    coffee-script-source (1.4.0)
+    erubis (2.7.0)
+    execjs (1.4.0)
+      multi_json (~> 1.0)
+    hike (1.2.1)
+    i18n (0.6.1)
+    jquery-rails (2.2.0)
+      railties (>= 3.0, < 5.0)
+      thor (>= 0.14, < 2.0)
+    json (1.7.6)
+    mail (2.5.3)
+      i18n (>= 0.4.0)
+      mime-types (~> 1.16)
+      treetop (~> 1.4.8)
+    mime-types (1.19)
+    multi_json (1.5.0)
+    polyglot (0.3.3)
+    rack (1.4.4)
+    rack-cache (1.2)
+      rack (>= 0.4)
+    rack-ssl (1.3.2)
+      rack
+    rack-test (0.6.2)
+      rack (>= 1.0)
+    rake (10.0.3)
+    rdoc (3.12)
+      json (~> 1.4)
+    sass (3.2.5)
+    sprockets (2.2.2)
+      hike (~> 1.2)
+      multi_json (~> 1.0)
+      rack (~> 1.0)
+      tilt (~> 1.1, != 1.3.0)
+    sqlite3 (1.3.7)
+    thor (0.17.0)
+    tilt (1.3.3)
+    treetop (1.4.12)
+      polyglot
+      polyglot (>= 0.3.1)
+    tzinfo (0.3.35)
+    uglifier (1.3.0)
+      execjs (>= 0.3.0)
+      multi_json (~> 1.0, >= 1.0.2)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  arel!
+  coffee-rails!
+  journey!
+  jquery-rails
+  rails!
+  sass-rails!
+  sqlite3
+  uglifier (>= 1.0.3)
