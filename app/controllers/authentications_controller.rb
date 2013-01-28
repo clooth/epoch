@@ -11,7 +11,7 @@ class AuthenticationsController < ApplicationController
 
     if authentication
       flash[:notice] = "Logged in Successfully"
-      sign_in_and_redirect User.find(Authentication.user_id)
+      sign_in_and_redirect User.find(authentication.user_id)
     elsif current_user
       token = omni["credentials"].token
       token_secret = ""
