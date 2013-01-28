@@ -3,12 +3,15 @@
     <th>User</th>
     <th>Provider</th>
     <th>Uid</th>
+    <th>Expiration date</th>
+    <th>Actions</th>
   </tr>
   <% for authentication in @authentications %>
     <tr>
       <td><%= authentication.user_id %></td>
       <td><%= authentication.provider %></td>
       <td><%= authentication.uid %></td>
+      <td><%= authentication.token_expiry %></td>
       <td><%= link_to "Destroy", authentication, :confirm => 'Are you sure?', :method => :delete %></td>
     </tr>
   <% end %>
