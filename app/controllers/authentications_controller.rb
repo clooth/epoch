@@ -51,7 +51,7 @@ class AuthenticationsController < ApplicationController
       sign_in_and_redirect User.find(Authentication.user_id)
     elsif current_user
       token = omni["credentials"].token
-      token_secret = ""
+      token_secret = omni["credentials"].secret
       
       current_user.authentications.create!(
         provider: omni["provider"],
