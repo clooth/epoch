@@ -1,11 +1,14 @@
 source 'https://rubygems.org'
+ruby '1.9.3'
 
 gem 'rails',     :git => 'git://github.com/rails/rails.git', :branch => '3-2-stable'
 gem 'journey',   :git => 'git://github.com/rails/journey.git', :branch => '1-0-stable'
 gem 'arel',      :git => 'git://github.com/rails/arel.git', :branch => '3-0-stable'
 
-gem 'sqlite3'
+gem 'pg'
 
+# heroku server
+gem 'thin'
 
 # Gems used only for assets and not required
 # in production environments by default.
