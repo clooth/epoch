@@ -26,6 +26,7 @@ gem 'jquery-rails'
 
 gem 'devise'
 gem 'omniauth-facebook'
+gem 'omniauth-twitter'
 
 gem 'nifty-generators'
 
