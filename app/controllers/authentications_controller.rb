@@ -9,14 +9,15 @@ class AuthenticationsController < ApplicationController
     sign_in_and_redirect User.find(authentication.user_id)
   end
 
-  def link(token, token_secret)
+  def link(token, token_secret, token_expiry)
     omni = request.env["omniauth.auth"]
 
     current_user.authentications.create!(
       provider: omni['provider'],
       uid: omni['uid'],
       token: token,
-      token_secret: token_secret
+      token_secret: token_secret,
+      token_expiry: token_expiry ? DateTime.strptime(token_expiry.to_s, "%s") : nil
     )
 
     flash[:notice] = "Authentication successful."
@@ -34,7 +35,8 @@ class AuthenticationsController < ApplicationController
     elsif current_user
       token = omni["credentials"].token
       token_secret = ""
-      link(token, token_secret)
+      token_expiry = omni["credentials"].expires ? omni["credentials"].expires_at : nil
+      link(token, token_secret, token_expiry)
     else
       user = User.new
       user.email = omni['extra']['raw_info'].email
@@ -56,9 +58,11 @@ class AuthenticationsController < ApplicationController
     if authentication
       logged_in(authentication)
     elsif current_user
+      puts JSON::dump(omni["credentials"])
       token = omni["credentials"].token
+      token_expiry = nil
       token_secret = omni["credentials"].secret
-      link(token, token_secret)
+      link(token, token_secret, token_expiry)
     else 
       session[:omniauth] = omni.except('extra')
       redirect_to new_user_registration_path
