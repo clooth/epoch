@@ -4,6 +4,10 @@ class AuthenticationsController < ApplicationController
     @authentications = current_user.authentications.all
   end
 
+  def failure
+    flash[:alert] = "Something went wrong."
+  end
+
 
   def facebook
     omni = request.env["omniauth.auth"]
