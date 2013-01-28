@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130128191913) do
+ActiveRecord::Schema.define(:version => 20130128210414) do
 
   create_table "authentications", :force => true do |t|
     t.integer  "user_id"
@@ -22,6 +22,24 @@ ActiveRecord::Schema.define(:version => 20130128191913) do
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
     t.datetime "token_expiry"
+  end
+
+  create_table "posts", :force => true do |t|
+    t.datetime "date_added"
+    t.datetime "date_posted"
+    t.text     "body"
+    t.integer  "user_id"
+    t.boolean  "consumed"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "schedules", :force => true do |t|
+    t.datetime "basedate"
+    t.integer  "repeat_type"
+    t.integer  "user_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "users", :force => true do |t|
