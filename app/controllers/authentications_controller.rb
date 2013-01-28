@@ -27,7 +27,7 @@ class AuthenticationsController < ApplicationController
   def facebook
     omni = request.env["omniauth.auth"]
     authentication = Authentication.find_by_provider_and_uid(
-      omni['provider'], 
+      omni['provider'],
       omni['uid'])
 
     if authentication
@@ -52,9 +52,9 @@ class AuthenticationsController < ApplicationController
   def twitter
     omni = request.env["omniauth.auth"]
     authentication = Authentication.find_by_provider_and_uid(
-      omni["provider"], 
+      omni["provider"],
       omni["uid"])
-    
+
     if authentication
       logged_in(authentication)
     elsif current_user
@@ -63,7 +63,7 @@ class AuthenticationsController < ApplicationController
       token_expiry = nil
       token_secret = omni["credentials"].secret
       link(token, token_secret, token_expiry)
-    else 
+    else
       session[:omniauth] = omni.except('extra')
       redirect_to new_user_registration_path
     end
