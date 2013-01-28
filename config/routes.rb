@@ -1,7 +1,7 @@
 Epoch::Application.routes.draw do
   get "registrations/create"
 
-  resources :authentications
+  resources :authentications, :posts, :schedules
 
   devise_for :users,
     path_names: {
